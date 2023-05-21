@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root{
+    --Moderate_Violet:hsl(263, 55%, 52%);  
+    --Very_Dark_Grayish_Blue:hsl(217, 19%, 35%);
+    --Very_Dark_Blackish_Blue:hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%);
+    --Light_Gray: hsl(0, 0%, 81%);
+    --Light_Grayish_Blue: hsl(210, 46%, 95%);
+    
+    --ff:'Barlow Semi Condensed', sans-serif;
+
+    --fs-10p: 0.625rem;  /* equivalen a 10px */
+    --fs-13p: 0.8125rem; /* equivalen a 13px */
+    --fs-20p: 1.25rem;    /* equivalen a 20px */
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    place-content: center; /* place content = Aling content + Justify content */
+
+    background: var(--Light_Grayish_Blue);
+    font-family: var(--ff);
+    font-size: var(--fs-13p);   
+
+    line-height: 1.5;
+    min-height: 100vh;
+
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* // Moile 375px */
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "item1" 
+    "item2" 
+    "item3" 
+    "item4"
+    "item5";
+    
+    gap:1.5rem;
+    padding-block: 2rem; /*padding-block es el espacio desde su borde hasta su contenido en la dirección del bloque */
+    margin-inline: 2rem; /* margin-inline especifica el margen al principio y al final en la dirección en línea */
+} 
+
+
+/* Media Query */
+@media(min-width:376px){
+    .grid-container{
+        display: grid;
+        gap: 1.75rem;    
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "item1 item1 item2 item5" 
+            "item3 item4 item4 item5";
+        
+        padding-block: 2rem; /*padding-block es el espacio desde su borde hasta su contenido en la dirección del bloque */
+        margin-inline: 2rem; /* margin-inline especifica el margen al principio y al final en la dirección en línea */
+        width: min(90%) max(1440px);
+    } 
+    .container{ 
+    border-radius: 0.5rem;
+    padding: 2rem;
+    }  
+    .comillas{
+    background-position: 80% 0%;
+    }
+}
+
+/* Componentes del contenedr */
+.flex-container{
+    align-items: center;
+    column-gap: 1rem;
+    display: flex;
+    font-size: var(--fs-10p);
+}
+.container{ 
+    border-radius: 0.5rem;
+    padding: 2rem;
+    /* margin-top: 2rem; */
+}
+.container img{
+    border-radius: 50%;
+    width: 1.8rem;
+}
+.container .name{
+    font-size: var(--fs-13p);
+    line-height: 1.2;
+}
+.container h2{
+    font-weight: 500;
+}
+.space > p{ 
+    margin-top: 0.9rem;
+}
+
+/* Items - Testimonios */
+.item-1 {
+    background: var(--Moderate_Violet); 
+    box-shadow: 1px 1px 1px 1px rgb(82,42,146,0.9),-1px -1px 1px 1px rgb(82,42,146, 0.9),5px 5px 10px -3px rgb(82,42,146,0.6);
+    grid-area: item1;
+
+}
+.item-1 .border-img-LG{
+    border: 2px solid  rgb(207, 207, 207, 0.5);
+}
+.comillas{
+    background-image:url(./static/bg-pattern-quotation.svg);
+    background-position: 90% 0%;
+    background-repeat: no-repeat;
+    background-size: 6.5rem;
+}
+.item-2{
+    background-color: var(--Very_Dark_Grayish_Blue);
+    grid-area: item2;
+    box-shadow:0.2px 1px 1px 1px rgb(41,49,61,0.9),-1px -1px 1px 1px rgb(41,49,61,0.9),5px 5px 10px -3px rgb(41,49,61,0.8);
+}
+.item-3{
+    background-color:var(--White) ;
+    box-shadow: 0.2rem 0.5rem 1.2rem -0.5rem rgb(0, 0, 0, 0.3);
+    grid-area: item3;
+}
+.item-4{
+    background-color: var(--Very_Dark_Blackish_Blue);
+    box-shadow:0.2px 1px 1px 1px rgb(0,0,0,0.9),-1px -1px 1px 1px rgb(0,0,0,0.9),5px 5px 10px -3px rgb(0,0,0,0.8);
+    grid-area: item4;
+}
+.item-4 .border-img-MV{
+    border: 2px solid var(--Moderate_Violet);
+}
+.item-5{
+    background-color: var(--White);
+    box-shadow: 0.2rem 0.5rem 1.2rem -0.5rem rgb(0, 0, 0, 0.3);
+    grid-area: item5;
+}
+
+/* Textos */
+.text_light{
+    color: var(--White);
+}
+.text_dark{
+    color: var(--Very_Dark_Grayish_Blue);
+}
+.container .text-big{
+    font-size:var(--fs-20p);
+    font-weight: 600;
+    line-height: 1.2;
+}
+.container .text-50 {
+    opacity: 0.5;
+}
+.container .text-70 {
+    opacity: 0.7;
+} 
